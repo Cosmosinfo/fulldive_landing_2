@@ -136,14 +136,20 @@ function Main() {
     const submit = async () => {
         await axios
             .post("http://fulldive.live:8880/api/insertLanding", {
-                landingPhone: `${countryCode} ${phoneCode}`,
-                landingName: name,
+                landing_phone: `${countryCode} ${phoneCode}`,
+                landing_name: name,
             })
             .then(function (response) {
-                response.status === 200 && window.alert("Regsiter Success");
-                window.location.reload();
+                console.log(response);
+                if (response.data.result === 400) {
+                    window.alert("Already Register");
+                } else if (response.status === 200) {
+                    window.alert("Regsiter Success");
+                    window.location.reload();
+                }
             })
-            .catch(function (error) {
+            .catch(function (e) {
+                console.log(e);
                 window.alert("failed, try again");
             });
     };

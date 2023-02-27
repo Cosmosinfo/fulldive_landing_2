@@ -2,7 +2,8 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { useTranslation } from "react-i18next";
 import i18next from "../lang/i18n";
-import countries from "../countries.json"; // 국가 데이터를 가져옵니다.
+import countries from "../countries.json";
+import axios from "axios";
 
 const data = [
     {
@@ -132,7 +133,20 @@ function Main() {
 
     const now = new Date();
 
-    console.log(now.getTime());
+    const submit = async () => {
+        await axios
+            .post("http://fulldive.live:8880/api/insertLanding", {
+                landingPhone: `${countryCode} ${phoneCode}`,
+                landingName: name,
+            })
+            .then(function (response) {
+                response.status === 200 && window.alert("Regsiter Success");
+                window.location.reload();
+            })
+            .catch(function (error) {
+                window.alert("failed, try again");
+            });
+    };
 
     return (
         <Wrap>
@@ -272,7 +286,7 @@ function Main() {
                             onChange={handlePhoneCodeChange}
                         />
                     </div>
-                    <button>{t("sixteen")}</button>
+                    <button onClick={submit}>{t("sixteen")}</button>
                 </div>
             </Container>
             <Footer>
@@ -678,6 +692,7 @@ const Container = styled.div`
                 border-radius: 100px;
                 font-size: 24px;
                 font-weight: 600;
+                cursor: pointer;
             }
         }
     }

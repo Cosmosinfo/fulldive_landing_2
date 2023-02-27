@@ -12,7 +12,7 @@ const data = [
         artist: "DEATHDATE",
         date: "2023/04/02",
         time: "20:00",
-        extraDate: "D-100",
+        extraDate: new Date("2023/04/02"),
     },
     {
         id: 2,
@@ -21,7 +21,7 @@ const data = [
         artist: "NEKIRU",
         date: "2023/04/05",
         time: "20:00",
-        extraDate: "D-100",
+        extraDate: new Date("2023/04/05"),
     },
     {
         id: 3,
@@ -30,34 +30,34 @@ const data = [
         artist: "C.LITZ",
         date: "2023/04/08",
         time: "20:00",
-        extraDate: "D-100",
+        extraDate: new Date("2023/04/08"),
     },
     {
         id: 4,
-        imgUrl: "/images/lucidream.png",
+        imgUrl: "/images/osaka.png",
         name: "오사카 매쉬업 라이브",
         artist: "DEATHDATE, C.LiTZ, 皆実杏奈, 愛理たん",
-        date: "2023/01/01",
+        date: "2023/04/14",
         time: "20:00",
-        extraDate: "D-100",
+        extraDate: new Date("2023/04/14"),
     },
     {
         id: 5,
-        imgUrl: "/images/osaka.png",
+        imgUrl: "/images/tokyo.png",
         name: "도쿄 매쉬업 라이브",
         artist: "NEKIRU, NTORE, ばたんキュン, Hiyorna",
-        date: "2023/01/01",
+        date: "2023/04/27",
         time: "20:00",
-        extraDate: "D-100",
+        extraDate: new Date("2023/04/27"),
     },
     {
         id: 6,
-        imgUrl: "/images/tokyo.png",
+        imgUrl: "/images/lucidream.png",
         name: "LuciDream 온라인 라이브",
         artist: "LuciDream",
-        date: "2023/01/01",
+        date: "2023/05/02",
         time: "20:00",
-        extraDate: "D-100",
+        extraDate: new Date("2023/05/02"),
     },
 ];
 
@@ -70,10 +70,16 @@ function Main() {
         seconds: 0,
     });
 
+    const [name, setName] = useState("");
+
     const [phoneCode, setPhoneCode] = useState("");
 
     // 선택된 국가 코드를 저장할 상태값을 생성합니다.
     const [countryCode, setCountryCode] = useState("+82"); // 초기값은 대한민국(KR)으로 설정합니다.
+
+    const onChange = (e) => {
+        setName(e.target.value);
+    };
 
     // Phone Code Input이 변경될 때마다 실행될 콜백 함수를 작성합니다.
     const handlePhoneCodeChange = (event) => {
@@ -124,6 +130,10 @@ function Main() {
 
     const { days, hours, minutes, seconds } = timeLeft;
 
+    const now = new Date();
+
+    console.log(now.getTime());
+
     return (
         <Wrap>
             <Container className="first">
@@ -172,7 +182,15 @@ function Main() {
                                     /> */}
                                     {data.time}
                                 </p>
-                                <span>{data.extraDate}</span>
+                                <span>
+                                    D -
+                                    {now &&
+                                        Math.ceil(
+                                            (data.extraDate.getTime() -
+                                                now.getTime()) /
+                                                (1000 * 60 * 60 * 24)
+                                        )}
+                                </span>
                             </div>
                         </StageDiv>
                     ))}
@@ -235,7 +253,12 @@ function Main() {
                         &nbsp;{t("twelever")}!
                     </p>
                     <div>
-                        <Input placeholder={t("fourteen")} className="name" />
+                        <Input
+                            placeholder={t("fourteen")}
+                            className="name"
+                            onChange={onChange}
+                            value={name}
+                        />
                         <Select
                             value={countryCode}
                             onChange={handleCountryCodeChange}
@@ -478,17 +501,16 @@ const Image = styled.div`
 
 const Container = styled.div`
     &.first {
-        /* height: auto; */
-        padding-top: 30%;
-        padding-bottom: 120px;
+        padding: 150px;
         background: #111117;
-        text-align: right;
+        text-align: center;
         > div {
             padding: 0 10%;
             > p {
                 font-size: 96px;
                 font-weight: 700;
-                margin-bottom: 24px;
+                margin-top: 30px;
+                margin-bottom: 30px;
                 > span {
                     color: #a0ff27;
                 }

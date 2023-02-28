@@ -9,7 +9,7 @@ const data = [
     {
         id: 1,
         imgUrl: "/images/deathdate.png",
-        name: "DEATHDATE 온라인 라이브",
+        name: "DEATHDATE Online Live",
         artist: "DEATHDATE",
         date: "2023/04/02",
         time: "20:00",
@@ -18,7 +18,7 @@ const data = [
     {
         id: 2,
         imgUrl: "/images/nekiru.png",
-        name: "NEKIRU 온라인 라이브",
+        name: "NEKIRU Online Live",
         artist: "NEKIRU",
         date: "2023/04/05",
         time: "20:00",
@@ -27,7 +27,7 @@ const data = [
     {
         id: 3,
         imgUrl: "/images/clitz.png",
-        name: "C.LiTZ 온라인 라이브",
+        name: "C.LiTZ Online Live",
         artist: "C.LITZ",
         date: "2023/04/08",
         time: "20:00",
@@ -36,8 +36,8 @@ const data = [
     {
         id: 4,
         imgUrl: "/images/osaka.png",
-        name: "오사카 매쉬업 라이브",
-        artist: "DEATHDATE, C.LiTZ, 皆実杏奈, 愛理たん",
+        name: "Osaka Mashup Live",
+        artist: "DEATHDATE, C.LiTZ, Coming Soon",
         date: "2023/04/14",
         time: "20:00",
         extraDate: new Date("2023/04/14"),
@@ -45,8 +45,8 @@ const data = [
     {
         id: 5,
         imgUrl: "/images/tokyo.png",
-        name: "도쿄 매쉬업 라이브",
-        artist: "NEKIRU, NTORE, ばたんキュン, Hiyorna",
+        name: "Tokyo Mashup Live",
+        artist: "NEKIRU, NTORE, Coming Soon",
         date: "2023/04/27",
         time: "20:00",
         extraDate: new Date("2023/04/27"),
@@ -54,7 +54,7 @@ const data = [
     {
         id: 6,
         imgUrl: "/images/lucidream.png",
-        name: "LuciDream 온라인 라이브",
+        name: "LuciDream Online Live",
         artist: "LuciDream",
         date: "2023/05/02",
         time: "20:00",
@@ -159,11 +159,12 @@ function Main() {
             <Container className="first">
                 <div>
                     <img
-                        src="/images/fulldive_logo.svg"
+                        src="/images/Group.svg"
                         width="auto"
                         height="auto"
                         alt="logo"
                     />
+                    &nbsp;FullDive
                     <p>
                         {t("date")} <span>OPEN</span>
                     </p>
@@ -265,7 +266,7 @@ function Main() {
             <Container className="sixth">
                 <div>
                     <h1>{t("twelve")}</h1>
-                    <span>* {t("thirteen")} : 2023/01/01 - 2023/03/31</span>
+                    <span>* {t("thirteen")} : 2023/02/28 - 2023/03/31</span>
                     <p>
                         {t("eighteen")}
                         <br />
@@ -364,6 +365,9 @@ const Select = styled.select`
     color: #ffffff;
     padding: 0 12px;
     font-size: 1rem;
+    @media screen and (max-width: 450px) {
+        width: 100%;
+    }
 `;
 
 const PhoneInput = styled.input`
@@ -375,6 +379,10 @@ const PhoneInput = styled.input`
     font-size: 16px;
     height: 60px;
     text-indent: 25px;
+    @media screen and (max-width: 450px) {
+        width: 100%;
+        margin-top: 10px;
+    }
 `;
 
 const Input = styled.input`
@@ -496,6 +504,15 @@ const StageDiv = styled.div`
             font-weight: 600;
         }
     }
+    @media screen and (max-width: 450px) {
+        > div {
+            flex-direction: column;
+            > span {
+                margin-top: 10px;
+                font-size: 14px;
+            }
+        }
+    }
 `;
 
 const StageWrap = styled.div`
@@ -517,15 +534,23 @@ const Image = styled.div`
         background: url("/images/ticket.png") no-repeat;
         background-size: 100%;
     }
+    @media screen and (max-width: 450px) {
+        &.tickets {
+            margin-top: 50px;
+            height: 100px;
+        }
+    }
 `;
 
 const Container = styled.div`
     &.first {
-        padding: 150px;
+        padding: 150px 0;
         background: #111117;
         text-align: center;
         > div {
             padding: 0 10%;
+            font-size: 90px;
+            font-weight: 700;
             > p {
                 font-size: 96px;
                 font-weight: 700;
@@ -539,6 +564,18 @@ const Container = styled.div`
                 margin-top: 24px;
                 font-size: 48px;
                 font-weight: 700;
+            }
+        }
+        @media screen and (max-width: 450px) {
+            padding: 100px 0;
+            > div {
+                font-size: 80px;
+                > p {
+                    font-size: 60px;
+                }
+                > span {
+                    font-size: 38px;
+                }
             }
         }
     }
@@ -594,6 +631,18 @@ const Container = styled.div`
                 }
             }
         }
+        @media screen and (max-width: 450px) {
+            > div {
+                flex-direction: column;
+                > div {
+                    width: 100%;
+                    &.right {
+                        margin-left: 0;
+                        padding-bottom: 10px;
+                    }
+                }
+            }
+        }
     }
     &.fourth {
         padding-top: 120px;
@@ -620,6 +669,14 @@ const Container = styled.div`
                     margin-top: 48px;
                     font-size: 24px;
                     font-weight: 300;
+                }
+            }
+        }
+        @media screen and (max-width: 450px) {
+            > div {
+                flex-direction: column;
+                > div {
+                    width: 100%;
                 }
             }
         }
@@ -657,10 +714,22 @@ const Container = styled.div`
                 }
             }
         }
+        @media screen and (max-width: 450px) {
+            > div {
+                flex-direction: column;
+                > div {
+                    width: 100%;
+                    &.fifth_right {
+                        margin-top: 30px;
+                    }
+                }
+            }
+        }
     }
     &.sixth {
         padding-top: 120px;
         > div {
+            padding: 0 10%;
             max-width: 550px;
             margin: 0 auto;
             text-align: center;

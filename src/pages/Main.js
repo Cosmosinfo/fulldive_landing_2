@@ -225,8 +225,6 @@ function Main() {
                         </p>
                         <p className="des">{t("five")}</p>
                         <span>{t("six")}</span>
-                        <br />
-                        <span>{t("six_one")}</span>
                     </div>
                     <div className="right">
                         <Image className="tickets" />
@@ -249,8 +247,6 @@ function Main() {
                         </h1>
                         <h2>{t("seven")}</h2>
                         <p>{t("eight")}</p>
-                        <p>{t("eight_one")}</p>
-                        <p>{t("eight_two")}</p>
                     </div>
                 </div>
             </Container>
@@ -628,6 +624,7 @@ const Container = styled.div`
                     > span {
                         font-size: 24px;
                         font-weight: 300;
+                        white-space: pre-wrap;
                     }
                 }
                 &.right {
@@ -672,6 +669,7 @@ const Container = styled.div`
                     font-weight: 500;
                 }
                 p {
+                    white-space: pre-wrap;
                     font-size: 24px;
                     font-weight: 300;
                 }

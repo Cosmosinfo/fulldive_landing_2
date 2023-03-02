@@ -225,6 +225,8 @@ function Main() {
                         </p>
                         <p className="des">{t("five")}</p>
                         <span>{t("six")}</span>
+                        <br />
+                        <span>{t("six_one")}</span>
                     </div>
                     <div className="right">
                         <Image className="tickets" />
@@ -247,6 +249,8 @@ function Main() {
                         </h1>
                         <h2>{t("seven")}</h2>
                         <p>{t("eight")}</p>
+                        <p>{t("eight_one")}</p>
+                        <p>{t("eight_two")}</p>
                     </div>
                 </div>
             </Container>
@@ -256,6 +260,7 @@ function Main() {
                         <img src="/images/logo_black.svg" alt="logo_black" />
                         <p>{t("nine")}</p>
                         <span>{t("ten")}</span>
+                        <span>{t("ten_one")}</span>
                     </div>
                     <div className="fifth_right">
                         <img src="/images/hello.svg" width="100%" alt="hello" />
@@ -662,11 +667,11 @@ const Container = styled.div`
                 }
                 h2 {
                     margin-top: 24px;
+                    margin-bottom: 48px;
                     font-size: 36px;
                     font-weight: 500;
                 }
                 p {
-                    margin-top: 48px;
                     font-size: 24px;
                     font-weight: 300;
                 }
@@ -700,6 +705,7 @@ const Container = styled.div`
                         font-weight: 500;
                     }
                     span {
+                        display: block;
                         font-size: 24px;
                         font-weight: 300;
                     }
@@ -710,6 +716,7 @@ const Container = styled.div`
                     text-align: right;
                     p {
                         margin-top: 50px;
+                        white-space: pre-wrap;
                     }
                 }
             }

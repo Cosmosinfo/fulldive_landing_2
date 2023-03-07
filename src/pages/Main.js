@@ -179,7 +179,7 @@ function Main() {
                     </span>
                 </div>
             </Container>
-            <Container className="second">
+            {/* <Container className="second">
                 <div>
                     <p>
                         {t("first")} <span>{t("second")}</span>
@@ -195,14 +195,7 @@ function Main() {
                             <p className="artist">{data.artist}</p>
                             <p className="calendar">{data.date}</p>
                             <div>
-                                <p>
-                                    {/* <img
-                                        src="/images/clock.svg"
-                                        width="18px"
-                                        height="18px"
-                                    /> */}
-                                    {data.time}
-                                </p>
+                                <p>{data.time}</p>
                                 <span>
                                     D -
                                     {now &&
@@ -216,7 +209,7 @@ function Main() {
                         </StageDiv>
                     ))}
                 </StageWrap>
-            </Container>
+            </Container> */}
             <Container className="third">
                 <div>
                     <div className="left">

@@ -129,6 +129,10 @@ function Main() {
         return () => clearInterval(intervalId);
     }, []);
 
+    useEffect(() => {
+        localStorage.setItem("lang", "ko");
+    }, []);
+
     const { days, hours, minutes, seconds } = timeLeft;
 
     const now = new Date();
@@ -249,7 +253,6 @@ function Main() {
                         <img src="/images/logo_black.svg" alt="logo_black" />
                         <p>{t("nine")}</p>
                         <span>{t("ten")}</span>
-                        <span>{t("ten_one")}</span>
                     </div>
                     <div className="fifth_right">
                         <img src="/images/hello.svg" width="100%" alt="hello" />
@@ -694,11 +697,13 @@ const Container = styled.div`
                         margin-bottom: 48px;
                         font-size: 36px;
                         font-weight: 500;
+                        white-space: pre-wrap;
                     }
                     span {
                         display: block;
                         font-size: 24px;
                         font-weight: 300;
+                        white-space: pre-wrap;
                     }
                 }
                 &.fifth_right {

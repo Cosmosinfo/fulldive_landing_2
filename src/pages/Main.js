@@ -5,62 +5,74 @@ import i18next from "../lang/i18n";
 import countries from "../countries.json";
 import axios from "axios";
 
-const data = [
+const datas = [
     {
         id: 1,
-        imgUrl: "/images/deathdate.png",
-        name: "DEATHDATE Online Live",
-        artist: "DEATHDATE",
-        date: "2023/04/02",
-        time: "20:00",
-        extraDate: new Date("2023/04/02"),
-    },
-    {
-        id: 2,
-        imgUrl: "/images/nekiru.png",
-        name: "NEKIRU Online Live",
-        artist: "NEKIRU",
-        date: "2023/04/05",
-        time: "20:00",
-        extraDate: new Date("2023/04/05"),
-    },
-    {
-        id: 3,
-        imgUrl: "/images/clitz.png",
-        name: "C.LiTZ Online Live",
-        artist: "C.LITZ",
-        date: "2023/04/08",
-        time: "20:00",
-        extraDate: new Date("2023/04/08"),
-    },
-    {
-        id: 4,
-        imgUrl: "/images/osaka.png",
+        imgUrl: "/images/osaka.jpeg",
         name: "Osaka Mashup Live",
-        artist: "DEATHDATE, C.LiTZ, Coming Soon",
+        artist: "DEATHDATE, C.LiTZ, 皆実杏奈, 愛理たん",
         date: "2023/04/14",
         time: "20:00",
         extraDate: new Date("2023/04/14"),
     },
-    {
-        id: 5,
-        imgUrl: "/images/tokyo.png",
-        name: "Tokyo Mashup Live",
-        artist: "NEKIRU, NTORE, Coming Soon",
-        date: "2023/04/27",
-        time: "20:00",
-        extraDate: new Date("2023/04/27"),
-    },
-    {
-        id: 6,
-        imgUrl: "/images/lucidream.png",
-        name: "LuciDream Online Live",
-        artist: "LuciDream",
-        date: "2023/05/02",
-        time: "20:00",
-        extraDate: new Date("2023/05/02"),
-    },
 ];
+
+// const data = [
+//     {
+//         id: 1,
+//         imgUrl: "/images/deathdate.png",
+//         name: "DEATHDATE Online Live",
+//         artist: "DEATHDATE",
+//         date: "2023/04/02",
+//         time: "20:00",
+//         extraDate: new Date("2023/04/02"),
+//     },
+//     {
+//         id: 2,
+//         imgUrl: "/images/nekiru.png",
+//         name: "NEKIRU Online Live",
+//         artist: "NEKIRU",
+//         date: "2023/04/05",
+//         time: "20:00",
+//         extraDate: new Date("2023/04/05"),
+//     },
+//     {
+//         id: 3,
+//         imgUrl: "/images/clitz.png",
+//         name: "C.LiTZ Online Live",
+//         artist: "C.LITZ",
+//         date: "2023/04/08",
+//         time: "20:00",
+//         extraDate: new Date("2023/04/08"),
+//     },
+//     {
+//         id: 4,
+//         imgUrl: "/images/osaka.png",
+//         name: "Osaka Mashup Live",
+//         artist: "DEATHDATE, C.LiTZ, Coming Soon",
+//         date: "2023/04/14",
+//         time: "20:00",
+//         extraDate: new Date("2023/04/14"),
+//     },
+//     {
+//         id: 5,
+//         imgUrl: "/images/tokyo.png",
+//         name: "Tokyo Mashup Live",
+//         artist: "NEKIRU, NTORE, Coming Soon",
+//         date: "2023/04/27",
+//         time: "20:00",
+//         extraDate: new Date("2023/04/27"),
+//     },
+//     {
+//         id: 6,
+//         imgUrl: "/images/lucidream.png",
+//         name: "LuciDream Online Live",
+//         artist: "LuciDream",
+//         date: "2023/05/02",
+//         time: "20:00",
+//         extraDate: new Date("2023/05/02"),
+//     },
+// ];
 
 function Main() {
     const { t } = useTranslation();
@@ -183,7 +195,7 @@ function Main() {
                     </span>
                 </div>
             </Container>
-            {/* <Container className="second">
+            <Container className="second">
                 <div>
                     <p>
                         {t("first")} <span>{t("second")}</span>
@@ -192,7 +204,7 @@ function Main() {
                     <span>{t("fourth")}</span>
                 </div>
                 <StageWrap>
-                    {data.map((data, index) => (
+                    {datas.map((data, index) => (
                         <StageDiv key={index}>
                             <img src={data.imgUrl} width="100%" alt="artist" />
                             <p className="title">{data.name}</p>
@@ -213,7 +225,7 @@ function Main() {
                         </StageDiv>
                     ))}
                 </StageWrap>
-            </Container> */}
+            </Container>
             <Container className="third">
                 <div>
                     <div className="left">

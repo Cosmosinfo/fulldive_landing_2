@@ -476,13 +476,16 @@ const StageDiv = styled.div`
     margin-bottom: 24px;
     border-radius: 12px;
     text-align: initial;
+    @media screen and (max-width: 450px) {
+        width: inherit;
+    }
     > img {
         border-radius: 12px;
     }
     > p {
         margin-top: 20px;
         margin-bottom: 14px;
-        line-height: px;
+
         &.calendar {
             background: url("/images/calendar.svg") no-repeat 0 50%;
             background-size: 18px;
@@ -516,9 +519,13 @@ const StageDiv = styled.div`
     @media screen and (max-width: 450px) {
         > div {
             flex-direction: column;
+            > p {
+                width: 10%;
+            }
             > span {
                 margin-top: 10px;
                 font-size: 14px;
+                width: 15%;
             }
         }
     }
@@ -529,6 +536,9 @@ const StageWrap = styled.div`
     justify-content: space-between;
     flex-wrap: wrap;
     margin-top: 80px;
+    @media screen and (max-width: 450px) {
+        flex-direction: column;
+    }
 `;
 
 const Image = styled.div`
